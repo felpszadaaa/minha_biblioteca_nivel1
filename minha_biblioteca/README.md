@@ -1,12 +1,12 @@
-# Sistema de Gerenciamento de Biblioteca 📚
+# Sistema de Gerenciamento de Biblioteca
 
-Projeto desenvolvido em Python orientado a objetos para gerenciar o acervo, o cadastro de usuários (Alunos e Professores), o controle de empréstimos e a geração de relatórios de uma biblioteca acadêmica, seguindo rigorosamente o Diagrama UML de arquitetura proposto.
+Projeto desenvolvido em Python orientado a objetos para gerenciar o acervo, o cadastro de usuários (Alunos e Professores), o controle de empréstimos e a geração de relatórios de uma biblioteca acadêmica.
 
 ---
 
-## 🛠️ Arquitetura e Estrutura de Pastas
+## Arquitetura e Estrutura de Pastas
 
-O projeto está organizado em módulos coesos para garantir a separação de responsabilidades:
+O projeto está organizado em módulos para garantir a separação de responsabilidades:
 
 ```text
 minha_biblioteca/
@@ -35,36 +35,77 @@ minha_biblioteca/
 └── relatorios/                # Geração de Relatórios
     ├── __init__.py
     └── relatorio.py           # Classe Relatório (listagem de empréstimos)
-🧩 Modelagem de Classes (Baseado no UML)
-1. Pessoa (Classe Base)
-Atributos: - str nome, - str matricula
+```
 
-Métodos: + apresentar() : str
+# Modelagem de Classes (Baseado no UML)
 
-2. Aluno (Herda de Pessoa)
-Atributos: - str curso
+## 1. Pessoa (Classe Base)
+Atributos:
 
-Métodos: + apresentar() : str
+- str nome
 
-3. Professor (Herda de Pessoa)
-Atributos: - str departamento
+- str matricula
 
-Métodos: + apresentar() : str
+### Métodos:
 
-4. Livro
-Atributos: - int codigo, - str titulo, - str autor, - bool disponivel
++ apresentar() : str
 
-Métodos: + __str__() : str
+## 2. Aluno (Herda de Pessoa)
+Atributos:
 
-5. Empréstimo
-Atributos: - Pessoa pessoa, - Livro livro, - bool ativo
+- str curso
 
-Métodos: + devolver() : void
+### Métodos:
 
-6. Biblioteca
-Atributos: - list[Livro] livros, - list[Pessoa] pessoas, - list[Empréstimo] emprestimos
++ apresentar() : str
 
-Métodos:
+## 3. Professor (Herda de Pessoa)
+Atributos:
+
+- str departamento
+
+### Métodos:
+
++ apresentar() : str
+
+## 4. Livro
+Atributos:
+
+- int codigo
+
+- str titulo
+
+- str autor
+
+- bool disponivel
+
+### Métodos:
+
++ __str__() : str
+
+## 5. Empréstimo
+Atributos:
+
+- Pessoa pessoa
+
+- Livro livro
+
+- bool ativo
+
+### Métodos:
+
++ devolver() : void
+
+## 6. Biblioteca
+Atributos:
+
+- list[Livro] livros
+
+- list[Pessoa] pessoas
+
+- list[Empréstimo] emprestimos
+
+### Métodos:
 
 + adicionar_livro(Livro livro) : void
 
@@ -78,32 +119,32 @@ Métodos:
 
 + devolver_livro(int codigo) : bool
 
-7. Relatório
-Métodos: + listar_emprestimos(list[Empréstimo] emprestimos) : str
+## 7. Relatório
 
-🧬 Conceitos de Orientação a Objetos (POO) Aplicados
-Herança:
+### Métodos:
+
++ listar_emprestimos(list[Empréstimo] emprestimos) : str
+
+# Conceitos de Orientação a Objetos (POO) Aplicados
+## Herança:
 A classe Pessoa atua como superclasse, contendo os atributos comuns (nome e matricula). As classes Aluno e Professor herdam essas características, evitando duplicação de código.
 
-Polimorfismo:
+## Polimorfismo: 
 Evidenciado pelo método apresentar(), implementado na classe base e sobrescrito nas subclasses para exibir detalhes específicos de cada tipo de usuário.
 
-Composição:
+## Composição: 
 A Biblioteca possui uma relação de forte dependência estrutural (composição) com seus registros principais (livros, pessoas e emprestimos).
 
-Associação:
+## Associação: 
 A classe Empréstimo se conecta diretamente e associa instâncias de Pessoa e Livro.
 
-Dependência:
+## Dependência: 
 A classe Relatório depende da classe Empréstimo para processar e formatar a listagem dos empréstimos ativos no sistema.
 
-🚀 Como Executar
-Certifique-se de ter o Python instalado.
-
+# Como Executar
 Navegue até o diretório raiz do projeto (minha_biblioteca/).
 
 Execute o arquivo principal via terminal:
 
-Bash
+## Bash
 python main.py
-
