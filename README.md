@@ -150,4 +150,4 @@ Execute o arquivo principal via terminal:
 python3 main.py
 
 # Link do Vídeo Youtube:
-## https://www.youtube.com/watch?v=b9yg4xwFh6s
+## https://www.youtube.com/watch?v=odWJXQRCOLY
